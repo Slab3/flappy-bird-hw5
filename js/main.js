@@ -1,11 +1,11 @@
-var cvs = document.getElementById("canvas");
-var ctx = cvs.getContext("2d");
+const cvs = document.getElementById("canvas");
+const ctx = cvs.getContext("2d");
 
-var bird = new Image();
-var bg = new Image();
-var fg = new Image();
-var pipeUp = new Image();
-var pipeBottom = new Image();
+const bird = new Image();
+const bg = new Image();
+const fg = new Image();
+const pipeUp = new Image();
+const pipeBottom = new Image();
 
 bird.src = "img/bird.png";
 bg.src = "img/bg.png";
@@ -13,16 +13,16 @@ fg.src = "img/fg.png";
 pipeUp.src = "img/pipeUp.png";
 pipeBottom.src = "img/pipeBottom.png";
 
-// Звуковые файлы
-var fly = new Audio();
-var score_audio = new Audio();
+// Звукові файли
+const fly = new Audio();
+const score_audio = new Audio();
 
 fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
-var gap = 90;
+const gap = 90;
 
-// При нажатии на какую-либо кнопку
+// При натисканні на якусь кнопку
 document.addEventListener("keydown", moveUp);
 
 function moveUp() {
@@ -30,24 +30,24 @@ function moveUp() {
     fly.play();
 }
 
-// Создание блоков
-var pipe = [];
+// Створення блоків
+let pipe = [];
 
 pipe[0] = {
     x : cvs.width,
     y : 0
 }
 
-var score = 0;
-// Позиция птички
-var xPos = 10;
-var yPos = 150;
-var grav = 1.5;
+let score = 0;
+// Позиція пташки
+let xPos = 10;
+let yPos = 150;
+let grav = 1.5;
 
 function draw() {
     ctx.drawImage(bg, 0, 0);
 
-    for(var i = 0; i < pipe.length; i++) {
+    for(let i = 0; i < pipe.length; i++) {
         ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
         ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + pipeUp.height + gap);
 
