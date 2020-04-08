@@ -1,11 +1,11 @@
-const cvs = document.getElementById("canvas");
-const ctx = cvs.getContext("2d");
+var cvs = document.getElementById("canvas");
+var ctx = cvs.getContext("2d");
 
-const bird = new Image();
-const bg = new Image();
-const fg = new Image();
-const pipeUp = new Image();
-const pipeBottom = new Image();
+var bird = new Image();
+var bg = new Image();
+var fg = new Image();
+var pipeUp = new Image();
+var pipeBottom = new Image();
 
 bird.src = "img/bird.png";
 bg.src = "img/bg.png";
@@ -14,13 +14,13 @@ pipeUp.src = "img/pipeUp.png";
 pipeBottom.src = "img/pipeBottom.png";
 
 // Звуковые файлы
-const fly = new Audio();
-const score_audio = new Audio();
+var fly = new Audio();
+var score_audio = new Audio();
 
 fly.src = "audio/fly.mp3";
 score_audio.src = "audio/score.mp3";
 
-const gap = 90;
+var gap = 90;
 
 // При нажатии на какую-либо кнопку
 document.addEventListener("keydown", moveUp);
@@ -31,23 +31,23 @@ function moveUp() {
 }
 
 // Создание блоков
-let pipe = [];
+var pipe = [];
 
 pipe[0] = {
     x : cvs.width,
     y : 0
 }
 
-let score = 0;
+var score = 0;
 // Позиция птички
-let xPos = 10;
-let yPos = 150;
-let grav = 1.5;
+var xPos = 10;
+var yPos = 150;
+var grav = 1.5;
 
 function draw() {
     ctx.drawImage(bg, 0, 0);
 
-    for(let i = 0; i < pipe.length; i++) {
+    for(var i = 0; i < pipe.length; i++) {
         ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
         ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + pipeUp.height + gap);
 
